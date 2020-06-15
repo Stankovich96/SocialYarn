@@ -214,7 +214,7 @@ const Signup = (props) => {
                 className={classes.TextField} 
                 // helperText={errors.email}
                 // error={errors.email ? true : false}
-                 value={inputState.email} 
+                value={inputState.email} 
                 onChange={handleChange} fullWidth />
 
                 <TextField 
@@ -270,10 +270,10 @@ const Signup = (props) => {
 
 
 Signup.propTypes ={
-    classes: PropTypes.object.isRequired,
-    user: PropTypes.object.isRequired,
-    UI: PropTypes.object.isRequired,
-    signupUser: PropTypes.func.isRequired
+    classes: PropTypes.object,
+    user: PropTypes.object,
+    UI: PropTypes.object,
+    signupUser: PropTypes.func
 }
 // const mapStateToProps = (state) => ({
 //     user: state.user,
