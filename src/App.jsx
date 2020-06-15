@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 import { ThemeProvider as MuiThemeProvider } from '@material-ui/core/styles';
@@ -16,10 +16,10 @@ import Navbar from './components/layout/Navbar';
 import AuthRoute from './utils/AuthRoute';
 
 //Pages
-import home from './pages/home';
-import login from './pages/login';
-import signup from './pages/signup';
-import user from './pages/user';
+import Home from './pages/home';
+import Login from './pages/login';
+import Signup from './pages/signup';
+import User from './pages/user';
 import axios from 'axios';
 
 
@@ -41,8 +41,8 @@ if(token){
   }
 }
 
-class App extends Component {
-  render(){
+
+    const App = () =>{
   return (
       <MuiThemeProvider theme={theme}>
         <Provider store={store}>
@@ -50,14 +50,14 @@ class App extends Component {
             <Navbar />
               <div className="container">
                 <Switch>
-                  <Route exact path="/" component={home}/>
-                  <AuthRoute exact path="/login" component={login}/>
-                  <AuthRoute exact path="/signup" component={signup}/>
-                  <Route exact path="/users/:handle" component={user}/>
+                  <Route exact path="/" component={Home}/>
+                  <AuthRoute exact path="/login" component={Login}/>
+                  <AuthRoute exact path="/signup" component={Signup}/>
+                  <Route exact path="/users/:handle" component={User}/>
                   <Route
                   exact
                   path="/users/:handle/scream/:screamId"
-                  component={user}
+                  component={User}
                 />
                 </Switch>
               </div>
@@ -65,7 +65,6 @@ class App extends Component {
         </Provider>
       </MuiThemeProvider>
   );
-}
 }
 
 export default App;

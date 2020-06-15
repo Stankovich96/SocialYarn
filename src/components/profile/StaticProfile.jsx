@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 import PropTypes from 'prop-types';
 import withStyles from '@material-ui/core/styles/withStyles';
 import dayjs from 'dayjs';
@@ -51,8 +51,20 @@ const styles = (theme) => ({
  }) ;
  
  const StaticProfile = (props) =>{
-     const {classes, profile: {handle, createdAt, imageUrl, bio, website, location}} = props;
 
+    const {classes, profile:{createdAt, imageUrl, bio, website, location},handle} = props;
+
+    // const {createdAt, imageUrl, bio, website, location} = profile;
+
+     const [profileState, setprofileState] = useState({
+        handle,
+        createdAt,
+        imageUrl,
+        bio,
+        website,
+        location
+     });
+     
      return (
         <Paper className={classes.paper}>
         <div className={classes.profile}>
@@ -91,8 +103,8 @@ const styles = (theme) => ({
 
  }
  StaticProfile.propTypes = {
-     profile: PropTypes.object.isRequired,
-     classes: PropTypes.object.isRequired
+     profile: PropTypes.object,
+     classes: PropTypes.object
  }
 
  export default withStyles(styles)(StaticProfile)

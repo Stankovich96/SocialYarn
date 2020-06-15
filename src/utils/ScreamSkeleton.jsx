@@ -68,7 +68,7 @@ const ScreamSkeleton = (props) => {
 };
 
 ScreamSkeleton.propTypes = {
-  classes: PropTypes.object.isRequired
+  classes: PropTypes.object
 };
 
 export default withStyles(styles)(ScreamSkeleton);
